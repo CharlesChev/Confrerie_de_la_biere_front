@@ -28,7 +28,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - npm ci
   script:
     - echo "Compiling the code..."
-    - ng build --prod
+    - ng build 
     - echo "Compile complete."
   artifacts:
     expire_in: 1 day
