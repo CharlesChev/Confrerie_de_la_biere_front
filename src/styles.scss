@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap/dist/css/bootstrap-grid.min.css';
+
+html {
+    background-color: #070707;
+}
+
+body {
+    margin: 0;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.container-fluid {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@font-face {
+    font-family: 'almendra';
+    src: url('assets/font/AlmendraSC-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'khand';
+    src: url('assets/font/Khand-Regular.ttf') format('truetype');
+}
+
+.almendra {
+    font-family:'almendra', serif ;
+}
+
+.khand {
+    font-family:'khand', serif;
+}

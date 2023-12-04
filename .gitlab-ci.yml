@@ -18,10 +18,11 @@
 
 stages:          # List of stages for jobs, and their order of execution
   - build
+  - quality
   - test
   - deploy
 
-build-job:       # This job runs in the build stage, which runs first.
+build_jobjob:       # This job runs in the build stage, which runs first.
   stage: build
   image: trion/ng-cli
   before_script:
@@ -34,6 +35,19 @@ build-job:       # This job runs in the build stage, which runs first.
     expire_in: 1 day
     paths:
         - dist/
+
+quality_job:
+  stage: quality
+  script:
+    - npm run lint
+  cache:
+    key:
+      files:
+        - package.json
+    paths:
+      - node_modules
+    policy: pull
+
 
 #unit-test-job:   # This job runs in the test stage.
 #  stage: test    # It only starts when the job in the build stage completes successfully.
