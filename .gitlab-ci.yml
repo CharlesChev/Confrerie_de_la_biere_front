@@ -22,7 +22,7 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
-build_jobjob:       # This job runs in the build stage, which runs first.
+build_job:       # This job runs in the build stage, which runs first.
   stage: build
   image: trion/ng-cli
   before_script:
@@ -38,6 +38,7 @@ build_jobjob:       # This job runs in the build stage, which runs first.
 
 quality_job:
   stage: quality
+  image: node:lts-alpine
   script:
     - npm run lint
   cache:
