@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+ nomBiere:string;
+ type:string;
+ pay:string;
+ photo:string;
+ brasserie:string;
+
+  ngOnInit(){
+
+  }
+
 }
