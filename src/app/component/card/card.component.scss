@@ -1,0 +1,52 @@
+@import '../../../variables.scss';
+
+.card {
+    color:white;
+    display:flex;
+    flex-direction: column;
+    max-width: 400px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: $vertHoublon;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: khand;
+    font-size: 22px;
+}
+
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cardhover:hover {
+    border-color: $jauneLager; 
+}
+
+.infos {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nom {
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+.brasserie {
+    font-weight: bold;
+    font-weight: 28px;
+}
+.pay {
+    margin-left: 5px;
+}
+
+.type {
+    margin-right: 5px;
+}
+
+.paytype {
+    display: flex;
+    flex-direction: row;
+}

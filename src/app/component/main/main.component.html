@@ -5,20 +5,24 @@
         </div>
     </div>
     <div class="row nav bannier-nav-color khand">
-        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center ">
-            <p class="navhover">A PROPOS</p>
+        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center ">
+            <a class="navhover" routerLink="/home">HOME</a>
         </div>
-        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center">
-            <p class="navhover">LES BIERES</p>
+        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center ">
+            <a class="navhover" routerLink="/apropos">A PROPOS</a>
         </div>
-        <div class="col-12 col-md-4 d-flex align-items-center justify-content-center">
-            <p class="navhover">LA CARTE</p>
+        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
+            <a class="navhover" routerLink="/lesbieres">LES BIERES</a>
+        </div>
+        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
+            <a class="navhover" routerLink="/carte">LA CARTE</a>
         </div>
     </div>
 </div>
 
-<div class="container-fluid"></div>
 
-<div class="row fixed-row">
-    Mentions Légales
+
+<div class="container-fluid">
+    <router-outlet></router-outlet>
 </div>
+
