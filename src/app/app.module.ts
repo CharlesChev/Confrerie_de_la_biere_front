@@ -10,6 +10,7 @@ import { LesbieresComponent } from './component/lesbieres/lesbieres.component';
 import { LacarteComponent } from './component/lacarte/lacarte.component';
 import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MentionsComponent } from './component/mentions/mentions.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
