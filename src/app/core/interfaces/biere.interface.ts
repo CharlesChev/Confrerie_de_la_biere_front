@@ -1,7 +1,8 @@
 export interface Biere {
     id:number;
-    nomBiere:string;
+    nom:string;
     pay:string;
     photo:string;
+    type:string;
     brasserie:string;
 }

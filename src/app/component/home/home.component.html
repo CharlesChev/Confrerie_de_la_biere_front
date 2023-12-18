@@ -6,7 +6,13 @@
         </p>
     </div>
     <div class="col-md-7 d-flex align-items-center justify-content-center" >
-        <app-card></app-card>
+        <app-card 
+            [nomBiere]="nomBiere" 
+            [type]="type" 
+            [pay]="pay"
+            [photo]="photo"
+            [brasserie]="brasserie" >
+        </app-card>
     </div>
 </div>
 
