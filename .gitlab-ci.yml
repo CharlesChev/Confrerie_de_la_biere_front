@@ -21,7 +21,7 @@ stages:          # List of stages for jobs, and their order of execution
   - test
 
 variables:
-  CLI_VERSION: 6.4
+  CLI_VERSION: '6.4'
 
 build_job:       
   stage: build
