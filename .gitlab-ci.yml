@@ -27,10 +27,10 @@ build_job:
   stage: build
   image: trion/ng-cli
   before_script:
+    - npm install
     - npm ci
   script:
     - echo "Compiling the code..."
-    - npm install
     - ng build 
     - echo "Compile complete."
   artifacts:
