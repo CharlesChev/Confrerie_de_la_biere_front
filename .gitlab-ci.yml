@@ -42,6 +42,7 @@ test_job:
   image: trion/ng-cli-karma:${CLI_VERSION}
   allow_failure: false
   script:
+  - npm install
   - ng test --progress false --watch false
   tags:
   - docker
