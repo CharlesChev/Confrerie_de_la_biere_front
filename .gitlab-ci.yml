@@ -21,13 +21,12 @@ stages:          # List of stages for jobs, and their order of execution
   - test
 
 variables:
-  CLI_VERSION: '6.2.1'
+  CLI_VERSION: '6.4.2'
 
 build_job:       
   stage: build
   image: trion/ng-cli
   before_script:
-    - npm install
     - npm ci
   script:
     - echo "Compiling the code..."
