@@ -19,7 +19,7 @@
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
-  
+
 build_job:       
   stage: build
   image: trion/ng-cli
@@ -39,6 +39,7 @@ test_job:
   image: trion/ng-cli-karma
   allow_failure: false
   script:
+  - npm install 
   - ng test --progress false --watch false
   tags:
   - docker
