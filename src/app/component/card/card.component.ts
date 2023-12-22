@@ -11,7 +11,6 @@ export class CardComponent {
   @Input() pay:string;
   @Input() photo:string;
   @Input() brasserie:string;
-  test:string;
 }
 
 
