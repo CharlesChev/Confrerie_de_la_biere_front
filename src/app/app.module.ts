@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { ConfrerieComponent } from './confrerie.component';
 import { MainComponent } from './component/main/main.component';
 import { CardComponent } from './component/card/card.component';
 import { AproposComponent } from './component/apropos/apropos.component';
@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    ConfrerieComponent,
     MainComponent,
     CardComponent,
     AproposComponent,
@@ -29,6 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ConfrerieComponent]
 })
 export class AppModule { }
