@@ -9,8 +9,7 @@ describe('LesbieresComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LesbieresComponent ],
-      imports:[HttpClient]
+      declarations: [ LesbieresComponent ]
     })
     .compileComponents();
 
