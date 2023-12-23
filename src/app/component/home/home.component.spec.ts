@@ -11,8 +11,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      imports:[AppRoutingModule, HttpClientTestingModule, CardComponent ]
+      declarations: [ HomeComponent, CardComponent  ],
+      imports:[AppRoutingModule, HttpClientTestingModule]
     })
     .compileComponents();
 
