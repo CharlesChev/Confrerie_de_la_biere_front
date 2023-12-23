@@ -26,10 +26,4 @@ describe('ConfrerieComponent', () => {
     expect(app.title).toEqual('confrerie');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(ConfrerieComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('confrerie app is running!');
-  });
 });

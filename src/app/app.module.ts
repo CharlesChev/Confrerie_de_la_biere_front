@@ -11,6 +11,7 @@ import { LacarteComponent } from './component/lacarte/lacarte.component';
 import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule
   ],
   providers: [importProvidersFrom(HttpClientModule)],
