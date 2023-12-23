@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing'; 
+import { CardComponent } from '../card/card.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -11,7 +12,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      imports:[AppRoutingModule, HttpClientTestingModule ]
+      imports:[AppRoutingModule, HttpClientTestingModule, CardComponent ]
     })
     .compileComponents();
 
