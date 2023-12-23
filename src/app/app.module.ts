@@ -1,6 +1,7 @@
 import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ConfrerieComponent } from './confrerie.component';
 import { MainComponent } from './component/main/main.component';
@@ -10,8 +11,7 @@ import { LesbieresComponent } from './component/lesbieres/lesbieres.component';
 import { LacarteComponent } from './component/lacarte/lacarte.component';
 import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterOutlet
   ],
   providers: [importProvidersFrom(HttpClientModule)],
   bootstrap: [ConfrerieComponent]
