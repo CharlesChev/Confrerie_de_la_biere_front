@@ -1,0 +1,42 @@
+@import '../../../variables.scss';
+
+.infos {
+    color: $blancMousse;
+}
+
+img {
+    max-width: 80%;
+}
+
+p {
+    text-align: center;
+    margin-top: 0;
+}
+
+.nom {
+    font-size: 5rem;
+}
+
+.type {
+    font-size: 3rem;
+}
+
+.pay {
+    font-size: 3rem;
+}
+
+.brasserie {
+    font-size: 2rem;
+}
+
+.description {
+    font-size: 2rem;
+}
+
+.gouteur {
+    font-size: 1.50rem;
+}
+
+.bold {
+    font-weight: bolder;
+}

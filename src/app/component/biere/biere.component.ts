@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Biere } from 'src/app/core/interfaces/biere.interface';
 import { BiereService } from 'src/app/service/biere.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-biere',

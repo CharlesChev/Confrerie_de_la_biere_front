@@ -5,4 +5,6 @@ export interface Biere {
     photo:string;
     type:string;
     brasserie:string;
+   description:string;
+   gouteur:string;
 }

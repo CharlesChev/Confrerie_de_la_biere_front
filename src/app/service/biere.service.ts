@@ -26,7 +26,9 @@ export class BiereService {
     pay: "Il y a un petit problème!",
     photo: "assets/beer_arti3.png",
     type:"",
-    brasserie:"Brasserie de l'erreur"
+    brasserie:"Brasserie de l'erreur",
+   description:"",
+   gouteur:""
   }
 
   getOneRandomBiere(): Observable<Biere>{
