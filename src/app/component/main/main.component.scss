@@ -8,27 +8,16 @@
     background-image: url('../../../assets/banniere.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}
-
-.bannier-nav-color {
-    color: $jauneLager;
+    color:$jauneLager;
 }
 
 .nav {
     font-size: 1.5rem;
+    margin-top: 10px !important;
 }
 
 a {
     text-decoration: none;
-    color: $jauneLager;
 }
 
-a:visited {
-    color: $jauneLager;
-}
 
-.navhover:hover {
-    color: $vertHoublon;
-    text-decoration:underline;
-    transition: 0.2s ease-out;
-}

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
 import { Biere } from '../core/interfaces/biere.interface';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,25 +32,67 @@ export class BiereService {
   getOneRandomBiere(): Observable<Biere>{
     let options = {headers:this.getHeaders};
     let randomNumber: string = Math.floor(Math.random() * 20).toString();
-    return this.http.get<Biere>(environment.baseUrl + "biere/" + randomNumber, options).pipe(
-      catchError(this.handleError<Biere>(this.errorBiere))
+    return this.http.get<Biere>(environment.baseUrl + "biere/" + randomNumber, options)
+    .pipe(
+      catchError(this.handleGetOneBiereError<Biere>(this.errorBiere))
     );
   }
 
-  getOneBiere(id: number): Observable <Biere> {
+  getOneBiere(id: string): Observable <Biere> {
     let options = {headers:this.getHeaders};
-    return this.http.get<Biere>(environment.baseUrl + "biere/" + id.toString(), options).pipe(
-      catchError(this.handleError<Biere>(this.errorBiere))
+    return this.http.get<Biere>(environment.baseUrl + "biere/" + id.toString(), options)
+    .pipe(
+      catchError(this.handleGetOneBiereError<Biere>(this.errorBiere))
     );
   }
 
-  private handleError<T>(result?:T){
+  getAllBiere(): Observable <Biere[]>  {
+    let options = {headers:this.getHeaders};
+    return this.http.get<Biere[]>(environment.baseUrl + "bieres", options)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  addBiere(biere: Biere): Observable<Biere> {
+    let options = {headers:this.postHeaders};
+    return this.http.post<Biere>(environment.baseUrl + "add/biere", biere, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteBiere(id: number): Observable<any> {
+    let options = {headers:this.getHeaders};
+    return this.http.delete(environment.baseUrl + "delete/biere/" + id.toString(), options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  putBiere(id: number): Observable<any> {
+    let options = {headers:this.getHeaders};
+    return this.http.delete(environment.baseUrl + "modify/biere/" + id.toString(), options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleGetOneBiereError<T>(result?:T){
     return (error:any):Observable <T> => {
-      console.log(error);
       return of( result as T); 
     };
   }
 
+  private handleError(error: HttpErrorResponse) {
+    let message:string ="";
+    if (error.status === 0){
+      message = "Oups il ya eu une erreur! " + error.message
+    }else {
+      message = "Backend returned code ${error.status}. " + error.message;
+    }
+    return throwError(()=> new Error(message));
+  }
 
 }
 

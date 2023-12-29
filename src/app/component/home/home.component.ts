@@ -22,7 +22,6 @@ export class HomeComponent {
 
   ngOnInit(){
     this.biereService.getOneRandomBiere().subscribe((data:Biere)=>{
-      console.log(data);
       this.nomBiere = data.nom;
       this.type = data.type;
       this.pay = data.pay;

@@ -1,1 +1,17 @@
-<p>lesbieres works!</p>
+<div class="khand alpha-cont">
+    <div *ngFor="let letter of alphabet">
+        <a class="color-to-be-hovered" routerLink="/lesbieres" fragment={{letter}}>{{ letter }}</a>
+    </div>
+</div>
+
+<div class=row>
+    <ng-container *ngFor="let letter of alphabet">
+        <div [attr.id]='letter' class="col-md-6 almendra letter">
+            {{ letter }}
+            <div class="khand" *ngFor="let biere of bieres | alphabetFilter:letter">
+                <a class='beer-info' [routerLink]="['/biere', biere.id]"><span class="beer-name-size">{{ biere.nom }}</span><span
+                        class="beer-type-pay-size">{{', '+biere.type}}{{', '+biere.pay}}</span></a>
+            </div>
+        </div>
+    </ng-container>
+</div>

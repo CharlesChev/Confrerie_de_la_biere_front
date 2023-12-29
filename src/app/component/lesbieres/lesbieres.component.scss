@@ -1,3 +1,49 @@
-p {
-    color:white
+@import '../../../variables.scss';
+
+
+.alpha-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
+
+a {
+    text-decoration: none;
+    color: $jauneLager;
+    font-size: 2.5rem;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+a:visited {
+    color: $jauneLager;
+}
+
+.letter {
+    color: $jauneLager;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.beer-name-size {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.beer-type-pay-size {
+    font-size: 1.5rem;
+}
+
+.beer-info {
+    color: $blancMousse;
+}
+
+.beer-info:hover {
+    color: $vertHoublon;
+    transition: 0.2s ease-out;
+    text-decoration:underline;
+}
+

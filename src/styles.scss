@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bootstrap/dist/css/bootstrap-grid.min.css';
+@import './variables.scss';
 
 
 html {
     background-color: #070707;
+    scroll-behavior: smooth;
+    animation-timing-function: ease-in;
 }
 
 body {
@@ -35,4 +38,14 @@ body {
 
 .khand {
     font-family:'khand', serif;
+}
+
+.color-to-be-hovered {
+    color:$jauneLager;
+}
+
+.color-to-be-hovered:hover {
+    color: $vertHoublon;
+    transition: 0.2s ease-out;
+    text-decoration:underline;
 }

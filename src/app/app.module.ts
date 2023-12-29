@@ -11,6 +11,8 @@ import { LesbieresComponent } from './component/lesbieres/lesbieres.component';
 import { LacarteComponent } from './component/lacarte/lacarte.component';
 import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
+import { AlphabetFilterPipe } from './core/pipes/alphabet-filter.pipe';
+import { BiereComponent } from './component/biere/biere.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { MentionsComponent } from './component/mentions/mentions.component';
     LesbieresComponent,
     LacarteComponent,
     HomeComponent,
-    MentionsComponent
+    MentionsComponent,
+    AlphabetFilterPipe,
+    BiereComponent
   ],
   imports: [
     BrowserModule,

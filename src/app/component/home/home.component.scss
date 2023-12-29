@@ -4,12 +4,12 @@
     position: fixed;
     bottom: 0;
     margin: 0;
-    color:white;
+    color: $blancMousse;
 }
 
 p {
-    color:white;
-    font-weight:bolder;
+    color: $blancMousse;
+    font-weight: bolder;
     font-size: 32px;
     text-align: center;
 }
@@ -21,7 +21,8 @@ p {
 }
 
 img {
-    max-width: 80%;;
+    max-width: 80%;
+    ;
 }
 
 a {
