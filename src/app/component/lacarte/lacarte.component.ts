@@ -28,7 +28,7 @@ export class LacarteComponent implements OnInit {
   public markerSetter() {
     console.log(this.bieres);
     for (let i = 0; i < this.bieres.length; i++) {
-      let marker = new L.Marker(/*[this.bieres[i].lat, this.bieres[i].lng]*/[25,35], { icon: this.icon });
+      let marker = new L.Marker([this.bieres[i].lat, this.bieres[i].lng], { icon: this.icon });
       marker.addTo(this.map);
     }
   }
