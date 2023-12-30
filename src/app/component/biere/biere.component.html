@@ -1,2 +1,12 @@
-<ng-container><p class="infos">{{biere.nom}}</p></ng-container>
-
+<div *ngIf="biere" class="row">
+    <div class="col-md-5 d-flex align-items-center justify-content-center flex-column">
+        <img src='{{ biere.photo }}' alt="photo de la biere">
+    </div>
+    <div class="col-md-7 d-flex flex-column align-items-center justify-content-center infos khand">
+        <p class="nom">{{ biere.nom }}</p>
+        <p class="type"> {{ biere.type }}, {{ biere.pay }}</p>
+        <p class="brasserie"><span class="bold">Brasserie :</span> {{ biere.brasserie }}</p>
+        <p class="description">{{ biere.description }}</p>
+        <p class="gouteur"> <span class="bold">Gouteur :</span> {{ biere.gouteur }}</p>
+    </div>
+</div>
