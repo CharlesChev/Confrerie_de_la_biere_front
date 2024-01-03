@@ -13,6 +13,7 @@ import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
 import { AlphabetFilterPipe } from './core/pipes/alphabet-filter.pipe';
 import { BiereComponent } from './component/biere/biere.component';
+import { BiereFormComponent } from './component/biere-form/biere-form.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BiereComponent } from './component/biere/biere.component';
     HomeComponent,
     MentionsComponent,
     AlphabetFilterPipe,
-    BiereComponent
+    BiereComponent,
+    BiereFormComponent
   ],
   imports: [
     BrowserModule,

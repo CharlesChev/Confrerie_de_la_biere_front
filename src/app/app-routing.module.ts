@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'mentions', component: MentionsComponent },
   { path: 'home', component: HomeComponent },
   { path: '', component: HomeComponent },
-  { path: 'biere/:id', component: BiereComponent }
+  { path: 'biere/:id', component: BiereComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 const routerOptions = {
