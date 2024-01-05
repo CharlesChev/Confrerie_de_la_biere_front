@@ -6,6 +6,8 @@ import { LesbieresComponent } from './component/lesbieres/lesbieres.component';
 import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
 import { BiereComponent } from './component/biere/biere.component';
+import { BiereFormComponent } from './component/back-office/biere-form/biere-form.component';
+import { DashboardComponent } from './component/back-office/delete-biere/dashboard.component';
 
 const routes: Routes = [
   { path: 'apropos', component: AproposComponent },
@@ -13,9 +15,10 @@ const routes: Routes = [
   { path: 'lesbieres', component: LesbieresComponent, },
   { path: 'mentions', component: MentionsComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent },
   { path: 'biere/:id', component: BiereComponent },
-  { path: '**', component: HomeComponent }
+  { path: 'add', component: BiereFormComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 const routerOptions = {

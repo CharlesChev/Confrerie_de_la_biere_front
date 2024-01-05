@@ -13,7 +13,9 @@ import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
 import { AlphabetFilterPipe } from './core/pipes/alphabet-filter.pipe';
 import { BiereComponent } from './component/biere/biere.component';
-import { BiereFormComponent } from './component/biere-form/biere-form.component';
+import { BiereFormComponent } from './component/back-office/biere-form/biere-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './component/back-office/delete-biere/dashboard.component';
 
 
 @NgModule({
@@ -28,13 +30,15 @@ import { BiereFormComponent } from './component/biere-form/biere-form.component'
     MentionsComponent,
     AlphabetFilterPipe,
     BiereComponent,
-    BiereFormComponent
+    BiereFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [importProvidersFrom(HttpClientModule)],
   bootstrap: [ConfrerieComponent]

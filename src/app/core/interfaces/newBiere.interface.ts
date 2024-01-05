@@ -1,5 +1,4 @@
-export interface Biere {
-    id: number;
+export interface NewBiere {
     nom: string;
     pay: string;
     photo: string;
@@ -10,4 +9,3 @@ export interface Biere {
     description: string;
     gouteur: string;
 }
-

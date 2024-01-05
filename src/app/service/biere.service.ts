@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { environment } from 'src/environment/environment';
 import { Biere } from '../core/interfaces/biere.interface';
 import { Observable, catchError, of, throwError } from 'rxjs';
+import { NewBiere } from '../core/interfaces/newBiere.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -58,9 +59,9 @@ export class BiereService {
       );
   }
 
-  addBiere(biere: Biere): Observable<Biere> {
+  addBiere(biere: NewBiere): Observable<NewBiere> {
     let options = { headers: this.postHeaders };
-    return this.http.post<Biere>(environment.baseUrl + "add/biere", biere, options)
+    return this.http.post<NewBiere>(environment.baseUrl + "add/biere", biere, options)
       .pipe(
         catchError(this.handleError)
       );
@@ -92,8 +93,9 @@ export class BiereService {
     let message: string = "";
     if (error.status === 0) {
       message = "Oups il ya eu une erreur! " + error.message
+      console.log(message);
     } else {
-      message = "Backend returned code ${error.status}. " + error.message;
+      console.log(message);
     }
     return throwError(() => new Error(message));
   }
