@@ -7,7 +7,7 @@
             <div class="khand infos ligne" *ngFor="let biere of bieres | alphabetFilter:letter">
                 <span>{{ biere.id+'    ' }}{{ biere.nom }}</span>
                 <button (click)="deleteOnClick(biere.id)" class="btn btn-primary">Suprimer</button>
-                <button class="btn btn-primary">Modifier</button>
+                <button (click)="toModifBiere(biere.id)" class="btn btn-primary">Modifier</button>
             </div>
         </div>
     </ng-container>

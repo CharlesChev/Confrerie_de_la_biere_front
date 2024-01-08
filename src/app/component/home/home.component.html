@@ -5,19 +5,16 @@
             Brune, Blonde, Rousse, qu'en pense La Confrérie?
         </p>
     </div>
-    <div class="col-md-7 d-flex align-items-center justify-content-center" >
-        <app-card 
-            [nomBiere]="nomBiere" 
-            [type]="type" 
-            [pay]="pay"
-            [photo]="photo"
-            [brasserie]="brasserie" >
+    <div class="col-md-7 d-flex align-items-center justify-content-center">
+        <app-card [nomBiere]="nomBiere" [type]="type" [pay]="pay" [photo]="photo" [brasserie]="brasserie">
         </app-card>
     </div>
 </div>
 
 
-<div class="row fixed-row">
-    <a routerLink="/mentions">Mentions Légales</a>
+<div class="row fixed-row d-flex flex-row">
+    <div>
+        <a class="mentions" routerLink="/mentions">Mentions Légales</a>
+        <a routerLink="/connection">Connection</a>
+    </div>
 </div>
-

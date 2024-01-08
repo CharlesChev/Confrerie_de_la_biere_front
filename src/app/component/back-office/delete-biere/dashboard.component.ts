@@ -26,6 +26,10 @@ export class DashboardComponent {
  toAddBiere(){
   this.router.navigate(['/add']);
  }
+
+ toModifBiere(id:number) {
+  this.router.navigate(['/modif/' + id.toString()]);
+ }
 }
 
 

@@ -1,0 +1,35 @@
+@import '../../../variables.scss';
+
+form {
+    color:$blancMousse;
+    margin-left: 40px;
+    font-weight: bolder;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+input {
+    margin-left: 40px;
+    width: 250px;
+    height: 35px;
+}
+
+input:focus {
+    outline: 2px solid $jauneLager !important;
+    outline-offset:5px;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100px;
+    height: 40px;
+    background-color: $vertHoublon;
+    color: $cremeStout;
+    font-weight: bolder;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: $vertHoublon;
+    font-size: 1rem;
+}
