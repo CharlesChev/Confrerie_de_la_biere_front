@@ -77,7 +77,7 @@ export class BiereService {
 
   putBiere(id: number): Observable<any> {
     let options = { headers: this.getHeaders };
-    return this.http.delete(environment.baseUrl + "modify/biere/" + id.toString(), options)
+    return this.http.put(environment.baseUrl + "modify/biere/" + id.toString(), options)
       .pipe(
         catchError(this.handleError)
       );
@@ -93,9 +93,8 @@ export class BiereService {
     let message: string = "";
     if (error.status === 0) {
       message = "Oups il ya eu une erreur! " + error.message
-      console.log(message);
     } else {
-      console.log(message);
+      console.log(error);
     }
     return throwError(() => new Error(message));
   }

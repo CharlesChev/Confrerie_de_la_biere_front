@@ -1,7 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cred } from 'src/app/core/interfaces/cred.interface';
+import { AuthService } from 'src/app/service/auth.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-connection',
@@ -10,23 +12,18 @@ import { Cred } from 'src/app/core/interfaces/cred.interface';
 })
 export class ConnectionComponent {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) { }
 
   credentials: Cred = { username: '', password: '' };
-  authenticated = false;
   authError = false;
 
-  login(credentials: Cred) {
-    const headers = new HttpHeaders(credentials ? {
-      authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
-    } : {});
-
-    this.http.get('user', { headers: headers }).subscribe((response: any) => {
-      if (response['name']) {
-        this.authenticated = true;
-      } else {
-        this.authenticated = false;
-      }
-    });
+  login(){
+    if ((btoa(this.credentials.username +':'+this.credentials.password) === environment.pass))
+    this.authService.login(this.credentials);
+    else {
+      this.authError = true;
+     }
   }
 }
+
+

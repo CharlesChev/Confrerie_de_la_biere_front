@@ -1,7 +1,7 @@
-<div class="alert alert-danger" [hidden]="!authError">
+<div class="error" [hidden]="!authError">
 	Il y a eu une erreur d'authentification.
 </div>
-<form role="form" (submit)="login(credentials)">
+<form role="form" (submit)="login()">
 	<div class="form-group">
 		<label for="username">Nom d'utilisateur:</label> <input type="text"
 			class="form-control" id="username" name="username" [(ngModel)]="credentials.username"/>

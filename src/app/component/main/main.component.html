@@ -1,5 +1,8 @@
 <div class="container-fluid">
     <div class="row bannier">
+        <button *ngIf='connected' class="deco" (click)='logout()'>
+            Déconnexion
+        </button>
         <div class="col-xs-12 bannier d-flex align-items-center justify-content-center almendra">
             <p>La Confrérie du Houblon</p>
         </div>

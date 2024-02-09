@@ -1,6 +1,6 @@
 import { NgModule, importProvidersFrom } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ConfrerieComponent } from './confrerie.component';
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './component/back-office/delete-biere/dashboard.component';
 import { ModifComponent } from './component/back-office/modif/modif.component';
 import { ConnectionComponent } from './component/connection/connection.component';
+import { AuthInterceptor } from './core/interceptor/auth-interceptor';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { ConnectionComponent } from './component/connection/connection.component
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [importProvidersFrom(HttpClientModule)],
+  providers: [importProvidersFrom(HttpClientModule), { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [ConfrerieComponent]
 })
 export class AppModule { }

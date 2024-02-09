@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'mentions', component: MentionsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'biere/:id', component: BiereComponent },
+  { path:'connection', component: ConnectionComponent},
   { path: 'modif/:id', component: ModifComponent },
   { path: 'add', component: BiereFormComponent },
-  { path:'connection', component: ConnectionComponent},
   { path: 'dashboard', component: DashboardComponent },
   { path: '**', component: HomeComponent },
 ];
