@@ -7,18 +7,21 @@
             <p>La Confrérie du Houblon</p>
         </div>
     </div>
-    <div class="row nav khand">
-        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center ">
+    <div class="row nav khand d-flex align-items-center justify-content-center">
+        <div class="col-12 d-flex align-items-center justify-content-center " [ngClass]="{'col-md-3':!connected, 'col-md-2':connected}">
             <a class="color-to-be-hovered" routerLink="/home">HOME</a>
         </div>
-        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center ">
+        <div class="col-12 d-flex align-items-center justify-content-center " [ngClass]="{'col-md-3':!connected, 'col-md-2':connected}">
             <a class="color-to-be-hovered" routerLink="/apropos">A PROPOS</a>
         </div>
-        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
+        <div class="col-12 d-flex align-items-center justify-content-center" [ngClass]="{'col-md-3':!connected, 'col-md-2':connected}">
             <a class="color-to-be-hovered" routerLink="/lesbieres">LES BIERES</a>
         </div>
-        <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
+        <div class="col-12 d-flex align-items-center justify-content-center" [ngClass]="{'col-md-3':!connected, 'col-md-2':connected}">
             <a class="color-to-be-hovered" routerLink="/carte">LA CARTE</a>
+        </div>
+        <div *ngIf='connected' class="col-12 d-flex align-items-center justify-content-center" [ngClass]="{'col-md-3':!connected, 'col-md-2':connected}">
+            <a class="color-to-be-hovered" routerLink="/dashboard">DASHBOARD</a>
         </div>
     </div>
 </div>
@@ -28,4 +31,3 @@
 <div class="container-fluid">
     <router-outlet></router-outlet>
 </div>
-

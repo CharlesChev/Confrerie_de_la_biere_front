@@ -10,7 +10,6 @@ import { BiereService } from 'src/app/service/biere.service';
 })
 export class ModifComponent implements OnInit {
 
-
   constructor(private route: ActivatedRoute, private biereService: BiereService, private router: Router) { }
 
   biere: Biere;

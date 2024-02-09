@@ -20,7 +20,7 @@ export class DashboardComponent {
 
  deleteOnClick(id:number) {
   this.biereService.deleteBiere(id).subscribe();
-  //this.router.navigate(['/lesbieres']);
+  this.router.navigate(['/lesbieres']);
  }
 
  toAddBiere(){
