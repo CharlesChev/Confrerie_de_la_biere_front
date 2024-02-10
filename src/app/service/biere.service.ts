@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environment/environment';
 import { Biere } from '../core/interfaces/biere.interface';
 import { Observable, catchError, of, throwError } from 'rxjs';
@@ -61,26 +61,17 @@ export class BiereService {
 
   addBiere(biere: NewBiere): Observable<NewBiere> {
     let options = { headers: this.postHeaders };
-    return this.http.post<NewBiere>(environment.baseUrl + "add/biere", biere, options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.post<NewBiere>(environment.baseUrl + "add/biere", biere, options);
   }
 
   deleteBiere(id: number): Observable<any> {
     let options = { headers: this.getHeaders };
-    return this.http.delete(environment.baseUrl + "delete/biere/" + id.toString(), options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.delete(environment.baseUrl + "delete/biere/" + id.toString(), options);
   }
 
-  putBiere(id: number): Observable<any> {
+  putBiere(id:number, biere: Biere): Observable<any> {
     let options = { headers: this.getHeaders };
-    return this.http.put(environment.baseUrl + "modify/biere/" + id.toString(), options)
-      .pipe(
-        catchError(this.handleError)
-      );
+    return this.http.put(environment.baseUrl + "modify/biere/" + id.toString(),biere, options);
   }
 
   private handleGetOneBiereError<T>(result?: T) {

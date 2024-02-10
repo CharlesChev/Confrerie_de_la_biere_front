@@ -1,34 +1,45 @@
 <div *ngIf="biere">
-    <h2>Modifier la bière : {{ biere.nom }}</h2>
-    <form>
-      <label for="nom">Nom:</label>
-      <input type="text" id="nom" [(ngModel)]="biere.nom" name="nom" required>
-  
-      <label for="pay">Pays:</label>
-      <input type="text" id="pay" [(ngModel)]="biere.pay" name="pay" required>
-  
-      <label for="photo">Photo:</label>
-      <input type="text" id="photo" [(ngModel)]="biere.photo" name="photo" required>
-  
-      <label for="type">Type:</label>
-      <input type="text" id="type" [(ngModel)]="biere.type" name="type" required>
-  
-      <label for="lat">Latitude:</label>
-      <input type="number" id="lat" [(ngModel)]="biere.lat" name="lat" required>
-  
-      <label for="lng">Longitude:</label>
-      <input type="number" id="lng" [(ngModel)]="biere.lng" name="lng" required>
-  
-      <label for="brasserie">Brasserie:</label>
-      <input type="text" id="brasserie" [(ngModel)]="biere.brasserie" name="brasserie" required>
-  
-      <label for="description">Description:</label>
-      <textarea id="description" [(ngModel)]="biere.description" name="description"></textarea>
-  
-      <label for="gouteur">Gouteur:</label>
-      <input type="text" id="gouteur" [(ngModel)]="biere.gouteur" name="gouteur">
-  
-      <button type="button" (click)="updateBiere()">Mettre à jour Bière</button>
-    </form>
-  </div>
-  
+  <h2>Modifier la bière : {{ biere.nom }}</h2>
+  <form [formGroup]="modifBiereForm" (ngSubmit)="updateBiere()">
+
+    <label for="nom">Nom:</label>
+    <input type="text" formControlName="nom" id="nom"  required>
+
+    <label for="pay">Pays:</label>
+    <input type="text" id="pay" formControlName="pay" required>
+
+    <label for="photo">Photo:</label>
+    <input type="text" id="photo" formControlName="photo" required>
+
+    <label for="type">Type:</label>
+    <input type="text" id="type" formControlName="type" required>
+
+    <label for="lat">Latitude:</label>
+    <input type="number" id="lat" formControlName="lat" required>
+
+    <label for="lng">Longitude:</label>
+    <input type="number" id="lng" formControlName="lng" required>
+
+    <label for="brasserie">Brasserie:</label>
+    <input type="text" id="brasserie" formControlName="brasserie" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+
+    <label for="gouteur">Gouteur:</label>
+    <input type="text" id="gouteur" formControlName="gouteur">
+
+
+    <div class='submit-container'>
+      <button type="submit" [disabled]="modifBiereForm.invalid" >Mettre à jour Bière</button>
+      <div class="submit-mess">
+        <div *ngIf="modifSucceed === true" class="succes">
+          Bière modifiée avec succès!
+        </div>
+        <div *ngIf="modifSucceed === false" class="error">
+          Oups! il y a eu une erreur!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

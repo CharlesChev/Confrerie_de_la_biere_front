@@ -13,11 +13,13 @@ export class BiereFormComponent implements OnInit {
 
   biereForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private biereService: BiereService, private router:Router) { }
+  constructor(private fb: FormBuilder, private biereService: BiereService, private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
   }
+
+  addSuceed: boolean;
 
   initForm() {
     this.biereForm = this.fb.group({
@@ -48,16 +50,19 @@ export class BiereFormComponent implements OnInit {
         gouteur: this.biereForm.value.gouteur,
       };
 
-      this.biereService.addBiere(nouvelleBiere).subscribe((result) => {
-        console.log('Bière ajoutée avec succès', result);
-      });
+      this.biereService.addBiere(nouvelleBiere).subscribe(
+        (result) => {
+          this.addSuceed = true;
+        },
+        (error) => {
+          this.addSuceed = false;
+        }
+      );
       this.biereForm.reset();
     } else {
       Object.values(this.biereForm.controls).forEach(control => control.markAsTouched());
     }
   }
 
-  toDashboard(){
-    this.router.navigate(['/dashboard']);
-  }
+
 }

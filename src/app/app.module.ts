@@ -15,7 +15,7 @@ import { AlphabetFilterPipe } from './core/pipes/alphabet-filter.pipe';
 import { BiereComponent } from './component/biere/biere.component';
 import { BiereFormComponent } from './component/back-office/biere-form/biere-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './component/back-office/delete-biere/dashboard.component';
+import { DashboardComponent } from './component/back-office/dashboard/dashboard.component';
 import { ModifComponent } from './component/back-office/modif/modif.component';
 import { ConnectionComponent } from './component/connection/connection.component';
 import { AuthInterceptor } from './core/interceptor/auth-interceptor';

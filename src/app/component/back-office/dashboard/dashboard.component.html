@@ -1,11 +1,19 @@
 <button (click)="toAddBiere()" class="btn btn-primary add-button">Ajouter une bière</button>
 
 <div class=row>
+    <div class="submit-mess">
+        <div *ngIf="deleteSucceed === true" class="succes">
+            Bière modifiée avec succès!
+        </div>
+        <div *ngIf="deleteSucceed === false" class="error">
+            Oups! il y a eu une erreur!
+        </div>
+    </div>
     <ng-container *ngFor="let letter of alphabet">
         <div class="col-md-6 almendra">
             <div class="letter">{{ letter }}</div>
             <div class="khand infos ligne" *ngFor="let biere of bieres | alphabetFilter:letter">
-                <span>{{ biere.id+'    ' }}{{ biere.nom }}</span>
+                <span>{{ biere.id+' ' }}{{ biere.nom }}</span>
                 <button (click)="deleteOnClick(biere.id)" class="btn btn-primary">Suprimer</button>
                 <button (click)="toModifBiere(biere.id)" class="btn btn-primary">Modifier</button>
             </div>

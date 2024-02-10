@@ -7,7 +7,7 @@ import { HomeComponent } from './component/home/home.component';
 import { MentionsComponent } from './component/mentions/mentions.component';
 import { BiereComponent } from './component/biere/biere.component';
 import { BiereFormComponent } from './component/back-office/biere-form/biere-form.component';
-import { DashboardComponent } from './component/back-office/delete-biere/dashboard.component';
+import { DashboardComponent } from './component/back-office/dashboard/dashboard.component';
 import { ModifComponent } from './component/back-office/modif/modif.component';
 import { ConnectionComponent } from './component/connection/connection.component';
 
