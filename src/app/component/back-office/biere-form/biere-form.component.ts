@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NewBiere } from 'src/app/core/interfaces/newBiere.interface';
 import { BiereService } from 'src/app/service/biere.service';
+import { UploadService } from 'src/app/service/upload.service';
 
 @Component({
   selector: 'app-biere-form',
@@ -13,20 +14,21 @@ export class BiereFormComponent implements OnInit {
 
   biereForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private biereService: BiereService, private router: Router) { }
+  constructor(private fb: FormBuilder, private biereService: BiereService, private router: Router, private upload:UploadService) { }
 
   ngOnInit(): void {
     this.initForm();
   }
 
   addSuceed: boolean;
+  uploadSuceed:boolean;
 
   initForm() {
     this.biereForm = this.fb.group({
       nom: ['', Validators.required],
       pay: ['', Validators.required],
       photo: ['', Validators.required],
-      type: ['', Validators.required],
+      type: [[null], Validators.required],
       lat: [0, Validators.required],
       lng: [0, Validators.required],
       brasserie: ['', Validators.required],
@@ -38,10 +40,12 @@ export class BiereFormComponent implements OnInit {
   onSubmit() {
     if (this.biereForm.valid) {
 
+      let nomPhoto:string = this.biereForm.value.photo.name;
+
       const nouvelleBiere: NewBiere = {
         nom: this.biereForm.value.nom,
         pay: this.biereForm.value.pay,
-        photo: this.biereForm.value.photo,
+        photo: 'assets/' + nomPhoto +'.png',
         type: this.biereForm.value.type,
         lat: this.biereForm.value.lat,
         lng: this.biereForm.value.lng,
@@ -56,6 +60,15 @@ export class BiereFormComponent implements OnInit {
         },
         (error) => {
           this.addSuceed = false;
+        }
+      );
+
+      this.upload.upload(this.biereForm.value.photo).subscribe(
+        (result) => {
+          this.uploadSuceed = true;
+        },
+        (error) => {
+          this.uploadSuceed = false;
         }
       );
       this.biereForm.reset();

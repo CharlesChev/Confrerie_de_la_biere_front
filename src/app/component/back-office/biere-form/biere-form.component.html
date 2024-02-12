@@ -20,10 +20,10 @@
     </div>
 
     <div class="form-group">
-      <label for="photo">URL de la photo</label>
-      <input type="text" id="photo" formControlName="photo" class="form-control" />
+      <label for="photo">Photo</label>
+      <input type="file" id="photo" formControlName="photo" class="form-control" />
       <div *ngIf="biereForm.get('photo')?.invalid && biereForm.get('photo')?.touched" class="error-message">
-        L'URL de la photo est requise.
+        La photo est requise.
       </div>
     </div>
 
@@ -78,10 +78,10 @@
     <div class='submit-container'>
       <button type="submit" [disabled]="biereForm.invalid" class="btn btn-primary">Ajouter</button>
       <div class="submit-mess">
-        <div *ngIf="addSuceed === true" class="succes">
+        <div *ngIf="addSuceed === true && uploadSuceed === true" class="succes">
           Bière ajoutée avec succès!
         </div>
-        <div *ngIf="addSuceed === false" class="error">
+        <div *ngIf="addSuceed === false || uploadSuceed === false" class="error">
           Oups! il y a eu une erreur!
         </div>
       </div>

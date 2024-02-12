@@ -9,7 +9,7 @@
     <input type="text" id="pay" formControlName="pay" required>
 
     <label for="photo">Photo:</label>
-    <input type="text" id="photo" formControlName="photo" required>
+    <input type="file" id="photo" formControlName="photo" required>
 
     <label for="type">Type:</label>
     <input type="text" id="type" formControlName="type" required>
@@ -33,10 +33,10 @@
     <div class='submit-container'>
       <button type="submit" [disabled]="modifBiereForm.invalid" >Mettre à jour Bière</button>
       <div class="submit-mess">
-        <div *ngIf="modifSucceed === true" class="succes">
+        <div *ngIf="modifSucceed === true  && uploadSuceed === true" class="succes">
           Bière modifiée avec succès!
         </div>
-        <div *ngIf="modifSucceed === false" class="error">
+        <div *ngIf="modifSucceed === false || uploadSuceed === false" class="error">
           Oups! il y a eu une erreur!
         </div>
       </div>

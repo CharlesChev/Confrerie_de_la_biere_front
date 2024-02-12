@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Biere } from 'src/app/core/interfaces/biere.interface';
 import { BiereService } from 'src/app/service/biere.service';
+import { UploadService } from 'src/app/service/upload.service';
 
 @Component({
   selector: 'app-modif',
@@ -11,11 +12,12 @@ import { BiereService } from 'src/app/service/biere.service';
 })
 export class ModifComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private biereService: BiereService, private router: Router) {}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private biereService: BiereService, private router: Router, private upload:UploadService) {}
 
   biere: Biere;
   modifBiereForm: FormGroup;
   modifSucceed:boolean;
+  uploadSuceed:boolean;
 
   ngOnInit(): void {
     this.loadBiere();
@@ -54,11 +56,13 @@ export class ModifComponent implements OnInit {
 
     if (this.modifBiereForm.valid) {
 
+      let nomPhoto:string = this.modifBiereForm.value.photo.name;
+
       const biereModif: Biere = {
         id: this.biere.id,
         nom: this.modifBiereForm.value.nom,
         pay: this.modifBiereForm.value.pay,
-        photo: this.modifBiereForm.value.photo,
+        photo: 'assets/' + nomPhoto +'.png',
         type: this.modifBiereForm.value.type,
         lat: this.modifBiereForm.value.lat,
         lng: this.modifBiereForm.value.lng,
@@ -75,6 +79,16 @@ export class ModifComponent implements OnInit {
           this.modifSucceed = false;
         }
       );
+
+      this.upload.upload(this.modifBiereForm.value.photo).subscribe(
+        (result) => {
+          this.uploadSuceed = true;
+        },
+        (error) => {
+          this.uploadSuceed = false;
+        }
+      );
+      
     } else {
       Object.values(this.modifBiereForm.controls).forEach(control => control.markAsTouched());
     }
