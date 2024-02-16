@@ -20,8 +20,10 @@ export class BiereFormComponent implements OnInit {
     this.initForm();
   }
 
+  selectedFile: File;
   addSuceed: boolean;
   uploadSuceed:boolean;
+  nomPhoto:string;
 
   initForm() {
     this.biereForm = this.fb.group({
@@ -37,15 +39,18 @@ export class BiereFormComponent implements OnInit {
     });
   }
 
+  onFileSelected(event:any) {
+    this.selectedFile = event.target.files[0] as File;
+    this.nomPhoto= event.target.files[0].name;
+  } 
+
   onSubmit() {
     if (this.biereForm.valid) {
-
-      let nomPhoto:string = this.biereForm.value.photo.name;
 
       const nouvelleBiere: NewBiere = {
         nom: this.biereForm.value.nom,
         pay: this.biereForm.value.pay,
-        photo: 'assets/' + nomPhoto +'.png',
+        photo: 'assets/' + this.nomPhoto,
         type: this.biereForm.value.type,
         lat: this.biereForm.value.lat,
         lng: this.biereForm.value.lng,
@@ -63,7 +68,7 @@ export class BiereFormComponent implements OnInit {
         }
       );
 
-      this.upload.upload(this.biereForm.value.photo).subscribe(
+      this.upload.upload(this.selectedFile).subscribe(
         (result) => {
           this.uploadSuceed = true;
         },

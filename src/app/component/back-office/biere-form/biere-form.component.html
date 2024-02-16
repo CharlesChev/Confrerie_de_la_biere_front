@@ -21,7 +21,7 @@
 
     <div class="form-group">
       <label for="photo">Photo</label>
-      <input type="file" id="photo" formControlName="photo" class="form-control" />
+      <input type="file" id="photo" formControlName="photo" class="form-control" (change)="onFileSelected($event)" />
       <div *ngIf="biereForm.get('photo')?.invalid && biereForm.get('photo')?.touched" class="error-message">
         La photo est requise.
       </div>

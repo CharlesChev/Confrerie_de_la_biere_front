@@ -9,7 +9,7 @@
     <input type="text" id="pay" formControlName="pay" required>
 
     <label for="photo">Photo:</label>
-    <input type="file" id="photo" formControlName="photo" required>
+    <input type="file" id="photo" formControlName="photo" (change)="onFileSelected($event)" required>
 
     <label for="type">Type:</label>
     <input type="text" id="type" formControlName="type" required>

@@ -18,6 +18,8 @@ export class ModifComponent implements OnInit {
   modifBiereForm: FormGroup;
   modifSucceed:boolean;
   uploadSuceed:boolean;
+  selectedFile: File;
+  nomPhoto:string;
 
   ngOnInit(): void {
     this.loadBiere();
@@ -52,17 +54,22 @@ export class ModifComponent implements OnInit {
     }
   }
 
+  onFileSelected(event:any) {
+    this.selectedFile = event.target.files[0] as File;
+    this.nomPhoto= event.target.files[0].name;
+  }
+
   updateBiere(): void {
 
     if (this.modifBiereForm.valid) {
+      console.log(this.selectedFile);
 
-      let nomPhoto:string = this.modifBiereForm.value.photo.name;
 
       const biereModif: Biere = {
         id: this.biere.id,
         nom: this.modifBiereForm.value.nom,
         pay: this.modifBiereForm.value.pay,
-        photo: 'assets/' + nomPhoto +'.png',
+        photo: 'assets/' + this.nomPhoto,
         type: this.modifBiereForm.value.type,
         lat: this.modifBiereForm.value.lat,
         lng: this.modifBiereForm.value.lng,
@@ -80,7 +87,7 @@ export class ModifComponent implements OnInit {
         }
       );
 
-      this.upload.upload(this.modifBiereForm.value.photo).subscribe(
+      this.upload.upload(this.selectedFile).subscribe(
         (result) => {
           this.uploadSuceed = true;
         },

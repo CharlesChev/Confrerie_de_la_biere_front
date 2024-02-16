@@ -23,5 +23,4 @@ export class BiereComponent implements OnInit {
       this.biereService.getOneBiere(this.id).subscribe((data) => this.biere = data);
     }
   }
-
 }
