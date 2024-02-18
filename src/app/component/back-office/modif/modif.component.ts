@@ -29,7 +29,7 @@ export class ModifComponent implements OnInit {
     this.modifBiereForm = this.fb.group({
       nom: [this.biere.nom, Validators.required],
       pay: [this.biere.pay, Validators.required],
-      photo: [this.biere.photo, Validators.required],
+      photo: [this.biere.photo],
       type: [this.biere.type, Validators.required],
       lat: [this.biere.lat, Validators.required],
       lng: [this.biere.lng, Validators.required],
@@ -60,6 +60,10 @@ export class ModifComponent implements OnInit {
   }
 
   updateBiere(): void {
+
+    if (!this.nomPhoto){
+      this.nomPhoto = this.biere.photo;
+    }
 
     if (this.modifBiereForm.valid) {
 
