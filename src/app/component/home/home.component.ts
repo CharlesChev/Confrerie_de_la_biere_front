@@ -11,24 +11,26 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent {
 
-  constructor(private biereService:BiereService){}
+  constructor(private biereService: BiereService) { }
 
- nomBiere:string;
- type:string;
- pay:string;
- photo:string;
- brasserie:string;
+  nomBiere: string;
+  type: string;
+  pay: string;
+  photo: string;
+  brasserie: string;
 
 
-  ngOnInit(){
-    this.biereService.getOneRandomBiere().subscribe((data:Biere)=>{
+  ngOnInit() {
+
+    this.biereService.getOneRandomBiere().subscribe((data: Biere) => {
       this.nomBiere = data.nom;
       this.type = data.type;
       this.pay = data.pay;
       this.photo = data.photo;
       this.brasserie = data.brasserie;
-    }) 
-   }
-  
+    })
+
+  }
+
 
 }

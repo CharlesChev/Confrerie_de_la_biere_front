@@ -62,8 +62,6 @@ export class ModifComponent implements OnInit {
   updateBiere(): void {
 
     if (this.modifBiereForm.valid) {
-      console.log(this.selectedFile);
-
 
       const biereModif: Biere = {
         id: this.biere.id,

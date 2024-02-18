@@ -83,9 +83,9 @@ export class BiereService {
   private handleError(error: HttpErrorResponse) {
     let message: string = "";
     if (error.status === 0) {
-      message = "Oups il ya eu une erreur! " + error.message
+      message = "Oups il ya eu une erreur! " + error.message;
     } else {
-      console.log(error);
+      message = "Oups il ya eu une erreur! " + error.message;
     }
     return throwError(() => new Error(message));
   }

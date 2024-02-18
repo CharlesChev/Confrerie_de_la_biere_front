@@ -10,6 +10,7 @@ import { BiereFormComponent } from './component/back-office/biere-form/biere-for
 import { DashboardComponent } from './component/back-office/dashboard/dashboard.component';
 import { ModifComponent } from './component/back-office/modif/modif.component';
 import { ConnectionComponent } from './component/connection/connection.component';
+import { AuthGuard } from './core/guard/auth.guard';
 
 const routes: Routes = [
   { path: 'apropos', component: AproposComponent },
@@ -19,9 +20,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'biere/:id', component: BiereComponent },
   { path:'connection', component: ConnectionComponent},
-  { path: 'modif/:id', component: ModifComponent },
-  { path: 'add', component: BiereFormComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'modif/:id', component: ModifComponent,canActivate: [AuthGuard] },
+  { path: 'add', component: BiereFormComponent,canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard] },
   { path: '**', component: HomeComponent },
 ];
 

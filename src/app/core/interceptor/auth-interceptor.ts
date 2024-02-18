@@ -8,7 +8,6 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         
         if (req.method === 'DELETE' || req.method === 'PUT' || req.method === 'POST'){
-            console.log(sessionStorage.getItem('auth'));
             if (sessionStorage.getItem('auth') === 'true') {
                 const authReq = req.clone({
                     headers:req.headers.set('Authorization','Basic Q29uZnJlcmU6TGFiaWVyZTc4Niw=')
