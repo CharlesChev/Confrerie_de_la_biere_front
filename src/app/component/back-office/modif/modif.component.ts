@@ -12,7 +12,7 @@ import { UploadService } from 'src/app/service/upload.service';
 })
 export class ModifComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private biereService: BiereService, private router: Router, private upload:UploadService) {}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private biereService: BiereService, private fileService: UploadService, private router: Router, private upload:UploadService) {}
 
   biere: Biere;
   modifBiereForm: FormGroup;
@@ -61,11 +61,14 @@ export class ModifComponent implements OnInit {
 
   updateBiere(): void {
 
-    if (!this.nomPhoto){
-      this.nomPhoto = this.biere.photo;
-    }
-
     if (this.modifBiereForm.valid) {
+
+      if (!this.nomPhoto){
+        this.nomPhoto = this.biere.photo;
+      }else {
+        let fileName = this.biere.photo.substring(7);
+        this.fileService.deleteFile(fileName).subscribe();
+      }
 
       const biereModif: Biere = {
         id: this.biere.id,
