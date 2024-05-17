@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Biere } from 'src/app/core/interfaces/biere.interface';
 import { BiereService } from 'src/app/service/biere.service';
 import { UploadService } from 'src/app/service/upload.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-modif',
@@ -74,7 +75,7 @@ export class ModifComponent implements OnInit {
         id: this.biere.id,
         nom: this.modifBiereForm.value.nom,
         pay: this.modifBiereForm.value.pay,
-        photo: 'assets/' + this.nomPhoto,
+        photo: environment.pathToImagesFolder + this.nomPhoto,
         type: this.modifBiereForm.value.type,
         lat: this.modifBiereForm.value.lat,
         lng: this.modifBiereForm.value.lng,

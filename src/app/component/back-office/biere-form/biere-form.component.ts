@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NewBiere } from 'src/app/core/interfaces/newBiere.interface';
 import { BiereService } from 'src/app/service/biere.service';
 import { UploadService } from 'src/app/service/upload.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-biere-form',
@@ -50,7 +51,7 @@ export class BiereFormComponent implements OnInit {
       const nouvelleBiere: NewBiere = {
         nom: this.biereForm.value.nom,
         pay: this.biereForm.value.pay,
-        photo: 'assets/' + this.nomPhoto,
+        photo: environment.pathToImagesFolder + this.nomPhoto,
         type: this.biereForm.value.type,
         lat: this.biereForm.value.lat,
         lng: this.biereForm.value.lng,
