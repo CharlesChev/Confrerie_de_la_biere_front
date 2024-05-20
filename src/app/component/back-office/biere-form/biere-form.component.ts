@@ -31,7 +31,7 @@ export class BiereFormComponent implements OnInit {
       nom: ['', Validators.required],
       pay: ['', Validators.required],
       photo: ['', Validators.required],
-      type: [[null], Validators.required],
+      type: ['', Validators.required],
       lat: [0, Validators.required],
       lng: [0, Validators.required],
       brasserie: ['', Validators.required],

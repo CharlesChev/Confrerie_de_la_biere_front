@@ -1,5 +1,5 @@
 export const environment = {
-   baseUrl:'http://localhost:8080/',
-   pass:'CeciNestPasLeMDP',
+   baseUrl:'http://localhost:8082/',
+   pass:"",
    pathToImagesFolder:'assets/'
 }

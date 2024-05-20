@@ -13,7 +13,9 @@ import { environment } from 'src/environment/environment';
 })
 export class ModifComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private biereService: BiereService, private fileService: UploadService, private router: Router, private upload:UploadService) {}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private biereService: BiereService, private fileService: UploadService, private router: Router, private upload:UploadService) {
+    this.initForm();
+  }
 
   biere: Biere;
   modifBiereForm: FormGroup;
@@ -21,6 +23,7 @@ export class ModifComponent implements OnInit {
   uploadSuceed:boolean;
   selectedFile: File;
   nomPhoto:string;
+  photoPath:string;
 
   ngOnInit(): void {
     this.loadBiere();
@@ -28,15 +31,14 @@ export class ModifComponent implements OnInit {
 
   initForm() {
     this.modifBiereForm = this.fb.group({
-      nom: [this.biere.nom, Validators.required],
-      pay: [this.biere.pay, Validators.required],
-      photo: [this.biere.photo],
-      type: [this.biere.type, Validators.required],
-      lat: [this.biere.lat, Validators.required],
-      lng: [this.biere.lng, Validators.required],
-      brasserie: [this.biere.brasserie, Validators.required],
-      description: [this.biere.description, Validators.required],
-      gouteur: [this.biere.gouteur, Validators.required],
+      nom: ['', Validators.required],
+      pay: ['', Validators.required],
+      type: ['', Validators.required],
+      lat: ['', Validators.required],
+      lng: ['', Validators.required],
+      brasserie: ['', Validators.required],
+      description: ['', Validators.required],
+      gouteur: ['', Validators.required],
     });
   }
 
@@ -46,7 +48,16 @@ export class ModifComponent implements OnInit {
       this.biereService.getOneBiere(id.toString()).subscribe(
         (biere: Biere) => {
           this.biere = biere;
-          this.initForm();
+          this.modifBiereForm.setValue({
+            nom: this.biere.nom,
+            pay:this.biere.pay,
+            type: this.biere.type,
+            lat: this.biere.lat,
+            lng: this.biere.lng,
+            brasserie: this.biere.brasserie,
+            description: this.biere.description,
+            gouteur: this.biere.gouteur
+          })
         },
         error => {
           console.error('Erreur lors du chargement de la bière:', error);
@@ -57,25 +68,27 @@ export class ModifComponent implements OnInit {
 
   onFileSelected(event:any) {
     this.selectedFile = event.target.files[0] as File;
-    this.nomPhoto= event.target.files[0].name;
+    this.nomPhoto = event.target.files[0].name;
   }
 
   updateBiere(): void {
 
     if (this.modifBiereForm.valid) {
-
       if (!this.nomPhoto){
-        this.nomPhoto = this.biere.photo;
+        this.photoPath = this.biere.photo;
       }else {
         let fileName = this.biere.photo.substring(7);
-        this.fileService.deleteFile(fileName).subscribe();
+        if (this.selectedFile){
+          this.fileService.deleteFile(fileName).subscribe();
+        }
+        this.photoPath=environment.pathToImagesFolder + this.nomPhoto;
       }
 
       const biereModif: Biere = {
         id: this.biere.id,
         nom: this.modifBiereForm.value.nom,
         pay: this.modifBiereForm.value.pay,
-        photo: environment.pathToImagesFolder + this.nomPhoto,
+        photo: this.photoPath,
         type: this.modifBiereForm.value.type,
         lat: this.modifBiereForm.value.lat,
         lng: this.modifBiereForm.value.lng,
@@ -93,14 +106,17 @@ export class ModifComponent implements OnInit {
         }
       );
 
-      this.upload.upload(this.selectedFile).subscribe(
-        (result) => {
-          this.uploadSuceed = true;
-        },
-        (error) => {
-          this.uploadSuceed = false;
-        }
-      );
+      if (this.selectedFile){
+        this.upload.upload(this.selectedFile).subscribe(
+          (result) => {
+            this.uploadSuceed = true;
+          },
+          (error) => {
+            this.uploadSuceed = false;
+          }
+        );
+      }
+      
       
     } else {
       Object.values(this.modifBiereForm.controls).forEach(control => control.markAsTouched());
